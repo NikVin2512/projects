@@ -1,13 +1,11 @@
-let title = "Lesson02";
-let screens = "Простые, Сложные, Интерактивные";
-let screenPrice = 4;
-let rollback = 50;
-let fullPrice = 10000;
-let adaptive = true;
+let int = 266219;
+let func = num => Number(num);
+let arr = Array.from(String(int), func);
 
-console.log(typeof title,typeof fullPrice, typeof adaptive);
-console.log(screens.length);
-console.log(screenPrice + "$");
-console.log(fullPrice + "$");
-console.log(screens.toLocaleLowerCase().split(", "));
-console.log(fullPrice * (rollback/100) + "$");
+console.log(arr);
+let res = arr.reduce((acc, rec) => acc * rec);
+
+console.log(res);
+let rez = res ** 3;
+console.log(rez);
+console.log(String(rez).slice(0,2));
