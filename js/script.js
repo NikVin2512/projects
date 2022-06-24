@@ -1,7 +1,5 @@
 let fullPrice;
 let rollback = 50;
-
-
 const title = prompt("Как называется ваш проект?");
 const screens = prompt("Какие типы экранов нужно разработать?", "Простые, Сложные, Интерактивные");
 const screenPrice = +prompt("Сколько будет стоить данная работа?", 12000);
@@ -15,21 +13,48 @@ let serviceAnswer2 = service2;
 let serviceAnswerPrice1 = servicePrice1;
 let serviceAnswerPrice2 = servicePrice2;
 fullPrice = screenPrice + servicePrice1 + servicePrice2;
-let servicePercentPrice = Math.ceil(fullPrice * (rollback/100));
+let servicePercentPrice;
+let allServicePrices;
 
-if (fullPrice > 30000){
-  fullPrice = fullPrice - (10/100);
-} else if (fullPrice > 15000 && fullPrice < 30000) {
-  let sale5 = prompt("Даем скидку в 5%");
-} else if (fullPrice < 15000 && fullPrice > 0) {
-  console.log("Скидка не предусмотрена");
-} else if (fullPrice < 0) {
-  console.log("Что то пошло не так");
+
+function getAllServicePrices() {
+  return servicePrice1 + servicePrice2;
 }
-console.log(typeof title,typeof fullPrice, typeof adaptive);
-console.log(screens.length);
-console.log(screenPrice + "$");
-console.log(fullPrice + "$");
-console.log(screens.toLocaleLowerCase().split(", "));
-console.log(fullPrice * (rollback/100) + "$");
-console.log(title, screens, screenPrice, adaptive, fullPrice, servicePercentPrice);
+getAllServicePrices(allServicePrices);
+
+const getFullPrice = function () {
+  return screenPrice + getAllServicePrices();
+};
+getFullPrice(fullPrice);
+
+const getTitle = function (string) {
+  return string[1].toUpperCase().trim() + string.slice(2).toLowerCase();
+};
+getTitle(title);
+
+const getServicePercentPrices = function () {
+  return Math.ceil(fullPrice * (rollback/100));
+};
+getServicePercentPrices(servicePercentPrice); 
+
+const getRollbackMessage = function (price) {
+  if (price > 30000){
+    price = price - (10/100);
+  } else if (price > 15000 && price < 30000) {
+    return "Даем скидку в 5%";
+  } else if (price < 15000 && price > 0) {
+    return "Скидка не предусмотрена";
+  } else if (price < 0) {
+    return "Что то пошло не так";
+  }
+};
+
+const showTypeOf = function (variable) {
+  console.log(variable, typeof variable);
+};
+showTypeOf(title);
+showTypeOf(fullPrice);
+showTypeOf(adaptive);
+
+console.log(getRollbackMessage(fullPrice));
+console.log(getServicePercentPrices(servicePercentPrice));
