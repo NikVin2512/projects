@@ -14,7 +14,7 @@ let allServicePrices;
 // };
 
 const isNUmber = function (num) {
-  return !isNaN(parseFloat(num)) && isFinite(num) && num != 0;
+  return !isNaN(parseFloat(num)) && isFinite(num) && num != false;
 };
 
 const asking = function () {
@@ -36,9 +36,9 @@ function getAllServicePrices() {
       service2 = prompt("Какой дополнительный тип услуги нужен?");
     }
       sum += +prompt("Сколько это будет стоить?");
-    while (!isNUmber(sum)){
+    while (!isNUmber(sum)) {
       sum += +prompt("Сколько это будет стоить?");
-    }
+    } 
     
   }
   console.log(sum);
