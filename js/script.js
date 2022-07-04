@@ -76,54 +76,6 @@ const appData = {
   }
 };
 
-// const isNUmber = function (num) {
-//   return !isNaN(parseFloat(num)) && isFinite(num) && num != false;
-// };
-
-
-// const getAllServicePrices = function () {
-//   let sum = 0;
-//   for (let i = 0; i < 2; i++) {
-//     let price = 0;
-//     if (i === 0) {
-//       appData.service1 = prompt("Какой дополнительный тип услуги нужен?");
-//     } else if (i === 1) {
-//       appData.service2 = prompt("Какой дополнительный тип услуги нужен?");
-//     }
-//     do {
-//       price = prompt("Сколько это будет стоить?");
-//     } while(!isNUmber(price));
-//     sum += +price;
-//   }
-//   return sum;
-// };
-
-// const getFullPrice = function () {
-//   return appData.screenPrice + appData.allServicePrices;
-// };
-
-// const getTitle = function () {
-//   return appData.title.trim()[0].toUpperCase() + appData.title.trim().slice(1).toLowerCase();
-// };
-
-// const getServicePercentPrices = function () {
-//   return Math.ceil(appData.fullPrice * (appData.rollback/100));
-// };
-
-// const getRollbackMessage = function (price) {
-//   if (price > 30000){
-//     price = price - (10/100);
-//   } else if (price > 15000 && price < 30000) {
-//     return "Даем скидку в 5%";
-//   } else if (price < 15000 && price > 0) {
-//     return "Скидка не предусмотрена";
-//   } else if (price < 0) {
-//     return "Что то пошло не так";
-//   }
-// };
-
-
-
 appData.start();
 
 
