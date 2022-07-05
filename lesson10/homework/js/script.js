@@ -1,0 +1,20 @@
+'use strict';
+const books = document.querySelector('.books');
+const book = document.querySelectorAll('.book');
+const title = document.querySelectorAll('h2 > a');
+const lists = document.querySelectorAll('ul');
+const links = document.querySelectorAll('li');
+const newLi = document.createElement('li');
+const adv = document.querySelector('.adv');
+
+console.log(lists, links);
+books.prepend(book[1]);
+books.append(book[3], book[5], book[2]);
+title[4].innerText = 'Книга 3. this и Прототипы Объектов';
+links[3].after(links[6], links[8]);
+lists[0].append(links[7], links[9], links[2], links[10]);
+links[56].before(links[51], links[54]);
+links[47].after(links[55], links[49], links[50]);
+adv.remove();
+newLi.textContent = 'Глава 8: За пределами ES6';
+links[25].after(newLi);
