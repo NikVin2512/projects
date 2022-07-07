@@ -18,9 +18,7 @@ const totalOther = document.getElementsByClassName('total-input')[2];
 const totalFull = document.getElementsByClassName('total-input')[3];
 const totalRollback = document.getElementsByClassName('total-input')[4];
 let screens = document.querySelectorAll('.screen');
-// const input = document.querySelector('input');
-// const select = document.querySelector('select');
-// console.log(select);
+
 const appData = {
   fullPrice: 0,
   rollback: 0,
