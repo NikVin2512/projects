@@ -34,7 +34,8 @@ const appData = {
   servicePricesNumber: 0,
   init: function () {
     this.addTitle();
-    
+    this.rangeDis();
+
     startBtn.addEventListener('click', () => {
       this.isError = false;
       this.checkValues();
@@ -49,6 +50,12 @@ const appData = {
     this.addPrices();
     this.showResult();
     this.logger();
+  },
+  rangeDis: function() {
+    inputRange.disabled = true;
+  },
+  rangeNotDis: function() {
+    inputRange.disabled = false;
   },
   showResult: function () {
     total.value = this.screenPrice;
@@ -74,6 +81,8 @@ const appData = {
       this.start();
       this.displayNone();     
       this.addDisabled();
+      this.rangeNotDis();
+      
     } else {
         return;
     }
@@ -145,7 +154,7 @@ const appData = {
       const select = screen.querySelector('select');
       const input = screen.querySelector('input');
       const selectName = select.options[select.selectedIndex].textContent;
-      appData.screens.push({ 
+      this.screens.push({ 
         id: i, 
         name: selectName, 
         price: +select.value * +input.value,
