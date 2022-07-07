@@ -128,13 +128,15 @@ const appData = {
     mainTotalItems.forEach(function (item) {
       const input = item.querySelector('input');
       input.value = '0';
-
     });
   },
   reset: function () {
     appData.addNotDisabled();
     appData.displayBlock();
     appData.clearMainTotalItems();
+    for (var key in appData) {
+        delete appData[key];
+    }
   },
   addScreens: function () {
     screens = document.querySelectorAll('.screen');
@@ -195,6 +197,8 @@ const appData = {
     const rangeValue =  (e) => {
       rangeSpan.textContent = inputRange.value + '%';
       this.rollback = +inputRange.value;
+      this.servicePercentPrice = this.fullPrice - Math.ceil(this.fullPrice * (this.rollback/100));
+      this.showResult();
     };
     inputRange.addEventListener('input', rangeValue);
 
